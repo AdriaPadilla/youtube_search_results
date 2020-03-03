@@ -1,6 +1,6 @@
 class Video():
 	def __init__(self,
-		origin, 
+		seed, 
 		type,
 		videoId,
 		kind,
@@ -10,8 +10,13 @@ class Video():
 		liveBroadcastContent,
 		publishedAt,
 		title,
+		viewCount,
+		likeCount,
+		dislikeCount,
+		favoriteCount,
+		commentCount,
 		):
-		self.origin = origin
+		self.seed = seed
 		self.type = type
 		self.videoId = videoId
 		self.kind = kind
@@ -21,3 +26,8 @@ class Video():
 		self.liveBroadcastContent = liveBroadcastContent
 		self.publishedAt = publishedAt
 		self.title = title
+		self.viewCount = viewCount
+		self.likeCount = likeCount
+		self.dislikeCount = dislikeCount
+		self.favoriteCount = favoriteCount
+		self.commentCount = commentCount
