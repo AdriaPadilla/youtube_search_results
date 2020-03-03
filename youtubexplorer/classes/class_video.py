@@ -2,7 +2,7 @@ class Video():
 	def __init__(self,
 		origin, 
 		type,
-		video_id,
+		videoId,
 		kind,
 		channelId,
 		channelTitle,
@@ -13,7 +13,7 @@ class Video():
 		):
 		self.origin = origin
 		self.type = type
-		self.video_id = video_id
+		self.videoId = videoId
 		self.kind = kind
 		self.channelId = channelId
 		self.channelTitle = channelTitle

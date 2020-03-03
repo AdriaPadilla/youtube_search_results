@@ -1,6 +1,3 @@
-
-import os
-import json
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 
@@ -22,6 +19,10 @@ def get_search_results(query, max_results):
 		q=query,
 		part="id,snippet",
 		maxResults=max_results,
+		order="date",
+		type="video",
+		safeSearch="none",
+		videoDuration="medium", 
 		).execute()
 
 	results = search_response["items"]
