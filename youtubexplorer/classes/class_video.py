@@ -15,6 +15,11 @@ class Video():
 		dislikeCount,
 		favoriteCount,
 		commentCount,
+		duration,
+		dimension,
+		definition,
+		caption,
+		licensedContent,
 		):
 		self.seed = seed
 		self.type = type
@@ -31,3 +36,8 @@ class Video():
 		self.dislikeCount = dislikeCount
 		self.favoriteCount = favoriteCount
 		self.commentCount = commentCount
+		self.duration = duration
+		self.dimension = dimension
+		self.definition = definition
+		self.caption = caption
+		self.licensedContent = licensedContent

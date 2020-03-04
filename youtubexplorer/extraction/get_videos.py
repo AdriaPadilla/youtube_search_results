@@ -35,7 +35,7 @@ def get_search_results(query, max_results):
 
 		stats_response = youtube.videos().list(
 			id=result["id"]["videoId"],
-			part="statistics",
+			part="statistics, contentDetails",
 			).execute()
 
 		stats = stats_response["items"][0]
@@ -56,6 +56,11 @@ def get_search_results(query, max_results):
 			stats["statistics"].get("dislikeCount", "Nan"),
 			stats["statistics"].get("favoriteCount", "Nan"),
 			stats["statistics"].get("commentCount", "Nan"),
+			stats["contentDetails"].get("duration", "Nan"),
+			stats["contentDetails"].get("dimension", "Nan"),
+			stats["contentDetails"].get("definition", "Nan"),
+			stats["contentDetails"].get("caption", "Nan"),
+			stats["contentDetails"].get("licensedContent", "Nan"),
 			)
 		video_objects_list.append(search_response_object)
 
@@ -71,7 +76,7 @@ def get_search_results(query, max_results):
 
 		related_response = youtube.search().list(
 			part="id,snippet",
-			maxResults=10,
+			maxResults=20,
 			relatedToVideoId=seed_id,
 			type="video",
 			order="relevance",
@@ -87,7 +92,7 @@ def get_search_results(query, max_results):
 
 			stats_response = youtube.videos().list(
 			id=result["id"]["videoId"],
-			part="statistics",
+			part="statistics, contentDetails",
 			).execute()
 
 			stats = stats_response["items"][0]
@@ -96,7 +101,7 @@ def get_search_results(query, max_results):
 				seed_id,
 				result["id"].get("kind", "Nan"),
 				result["id"].get("videoId", "Nan"),
-				result.get("kind", "Nan"),
+				"related_video",
 				result["snippet"].get("channelId", "Nan"),
 				result["snippet"].get("channelTitle", "Nan"),
 				result["snippet"].get("description", "Nan"),
@@ -108,6 +113,11 @@ def get_search_results(query, max_results):
 				stats["statistics"].get("dislikeCount", "Nan"),
 				stats["statistics"].get("favoriteCount", "Nan"),
 				stats["statistics"].get("commentCount", "Nan"),
+				stats["contentDetails"].get("duration", "Nan"),
+				stats["contentDetails"].get("dimension", "Nan"),
+				stats["contentDetails"].get("definition", "Nan"),
+				stats["contentDetails"].get("caption", "Nan"),
+				stats["contentDetails"].get("licensedContent", "Nan"),			
 				)
 			related_videos_objects_list.append(related_response_object)
 
@@ -123,7 +133,7 @@ def get_search_results(query, max_results):
 
 		related_response = youtube.search().list(
 			part="id,snippet",
-			maxResults=10,
+			maxResults=20,
 			relatedToVideoId=seed_id,
 			type="video",
 			order="relevance",
@@ -139,7 +149,7 @@ def get_search_results(query, max_results):
 
 			stats_response = youtube.videos().list(
 			id=result["id"]["videoId"],
-			part="statistics",
+			part="statistics, contentDetails",
 			).execute()
 
 			stats = stats_response["items"][0]
@@ -148,7 +158,7 @@ def get_search_results(query, max_results):
 				seed_id,
 				result["id"].get("kind", "Nan"),
 				result["id"].get("videoId", "Nan"),
-				result.get("kind", "Nan"),
+				"related_video",
 				result["snippet"].get("channelId", "Nan"),
 				result["snippet"].get("channelTitle", "Nan"),
 				result["snippet"].get("description", "Nan"),
@@ -160,9 +170,15 @@ def get_search_results(query, max_results):
 				stats["statistics"].get("dislikeCount", "Nan"),
 				stats["statistics"].get("favoriteCount", "Nan"),
 				stats["statistics"].get("commentCount", "Nan"),
+				stats["contentDetails"].get("duration", "Nan"),
+				stats["contentDetails"].get("dimension", "Nan"),
+				stats["contentDetails"].get("definition", "Nan"),
+				stats["contentDetails"].get("caption", "Nan"),
+				stats["contentDetails"].get("licensedContent", "Nan"),
 				)
 			another_iteration_list.append(related_response_object)
 
-	video_objects_list.extend(related_videos_objects_list, another_iteration_list)
+	video_objects_list.extend(related_videos_objects_list)
+	video_objects_list.extend(another_iteration_list)
 
 	return(video_objects_list)
