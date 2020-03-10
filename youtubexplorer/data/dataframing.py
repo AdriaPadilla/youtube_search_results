@@ -1,10 +1,10 @@
 import pandas as pd
 
-def export_data(video_objects_list):
+def export_data(videos):
 
 	all_data = []
 
-	for video in video_objects_list:
+	for video in videos:
 
 		video_frame = pd.DataFrame({
 			"Id": video.videoId,
