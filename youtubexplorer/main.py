@@ -19,15 +19,15 @@ python3 main.py --search "coronavirus" --more_related true --max 1 --iter 0
 
 def explore_search(query, max_results, get_related, iteration_n):
 
-		videos = v.explore_videos(query, max_results, get_related, iteration_n)
+		videos = v.explore_search(query, max_results, get_related, iteration_n)
+		print(videos)
+		for video in videos:
+			print("Title: "+video.title +" | Channel: "+video.channelTitle+" | views: "+video.viewCount+" | Like Count: "+video.likeCount)
 
-		frame.export_data(videos)
 
 def explore_related(seed_list, max_results, iteration_n):
 
 		videos = v.explore_related(seed_list, max_related, iteration_n)
-
-		frame.export_data(videos)
 
 		
 if __name__ == "__main__":

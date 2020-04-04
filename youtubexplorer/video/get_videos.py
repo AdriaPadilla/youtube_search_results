@@ -158,7 +158,7 @@ def get_related_videos(seed_list, related_max):
 ##	Note: Seeds to iterate over get_related_videos == the previous itertion videos IDs. 
 
 
-def explore_videos(query, max_results, get_related, iteration_n):
+def explore_search(query, max_results, get_related, iteration_n):
 
 	videos = get_videos(query, max_results)
 
