@@ -11,6 +11,10 @@ max_results = 1		## Nº of results in search
 get_related = True 	## ¿Want related videos? False / True (respect upper case in capital)
 max_related = 1		## Max nº of related videos 
 iteration_n = 1		## Nº of iterations over get related function
+
+Query example:
+python3 main.py --search "coronavirus" --more_related true --max 1 --iter 0
+
 """
 
 def explore_search(query, max_results, get_related, iteration_n):
