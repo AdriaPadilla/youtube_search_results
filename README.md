@@ -26,5 +26,5 @@ max_results = n # Use integer number calculated within your YouTube API Quota
 ```
 
 ## Export file
-- If use .xslx export. filename will be f{"%m-%d-%Y-%H-%M-%S"-query}.xlsx
+- If use .xslx export. filename will be "%m-%d-%Y-%H-%M-%S"-query.xlsx"
 - You can change this on line 65 in export.py
