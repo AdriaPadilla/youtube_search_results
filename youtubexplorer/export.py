@@ -1,8 +1,9 @@
 import pandas as pd
+from datetime import datetime
 
+""" ONLY FOR MYSQL DUMP MODULES
 import pymysql
 from sqlalchemy import create_engine
-from datetime import datetime
 
 db_user = "your_db_user"
 db_password = "your_db_pw"
@@ -16,12 +17,12 @@ connection = pymysql.connect(host=host,
                              password=db_password,
                              db=db_name,
                              charset="utf8mb4")
-
+"""
 now = datetime.now()
 date = now.strftime("%m-%d-%Y-%H-%M-%S")
 date2 = now.strftime('%Y-%m-%dT%H:%M:%SZ')
 
-def export_data(videos):
+def export_data(videos, q):
 
     all_data = []
 
@@ -56,4 +57,9 @@ def export_data(videos):
         all_data.append(video_frame)
 
     final_df = pd.concat(all_data, ignore_index=True)
+
+    """ PANDAS MYSQL DUMP
     final_df.to_sql(db_table, index=False, con=engine, if_exists='append', chunksize=1000, method='multi')
+    """
+
+    final_df.to_excel(f"{date}-{q}.xlsx")
