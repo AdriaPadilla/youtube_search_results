@@ -20,9 +20,10 @@ google-api-python-client
 ## Define query and max results
 
 on **main.py**:
+```python
 queries = ["query_1", "query_2", "query_n"]
 max_results = n # Use integer number calculated within your YouTube API Quota
-
+```
 
 ## Export file
 If use .xslx export. filename will be f{"%m-%d-%Y-%H-%M-%S"-query}.xlsx
