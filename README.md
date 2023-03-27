@@ -1,4 +1,4 @@
-# YouTube Search Results export to xlsx file
+# YouTube Search Results Tracker
 
 This script is created to study YouTube search results in one (or more) querie/s. Through YouTube API, it will make a request and save the data in an .xlsx file.
 
